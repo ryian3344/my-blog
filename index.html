@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ডিজিটাল অ্যাডভোকেসি: প্রবণতা ও বিশ্লেষণ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Visualization & Content Choices:
+        - Introduction: Data: "১০টি ছবি, ১৬টি পর্যবেক্ষণ". Goal: Inform. Viz: Single Big Number. Justification: Impactful intro. Method: HTML/Tailwind. (CONFIRMING NO SVG)
+        - Core Principles: Data: Summarized principles. Goal: Inform. Viz: List/Cards. Justification: Clarity. Method: HTML/Tailwind. (CONFIRMING NO SVG)
+        - Power of Messages (বার্তার শক্তি): Data: Themes from 10 images (সত্যের দাবি, অধিকার ও স্বাধীনতা, নীরবতার বিরুদ্ধে, নেতৃত্ব ও বিচার, কণ্ঠস্বরের শক্তি). Goal: Compare/Show Composition. Viz: Donut Chart. Justification: Shows thematic distribution. Method: Chart.js (Canvas). (CONFIRMING NO SVG)
+        - Analytical Insights (বিশ্লেষণাত্মক পর্যবেক্ষণ): Data: 3-4 key observations. Goal: Inform. Viz: Cards. Justification: Highlights key findings. Method: HTML/Tailwind. (CONFIRMING NO SVG)
+        - Hashtag Strategy (হ্যাশট্যাগ কৌশল): Data: Key hashtags & tips. Goal: Inform/Organize. Viz: HTML/CSS styled tags. Justification: Visual appeal. Method: HTML/Tailwind. (CONFIRMING NO SVG)
+        - SWOT Analysis (SWOT বিশ্লেষণ): Data: Strengths, Weaknesses, Opportunities, Threats of digital advocacy based on report. Goal: Organize/Compare. Viz: 2x2 Grid. Justification: Standard strategic overview. Method: HTML/Tailwind. (CONFIRMING NO SVG)
+        - Conclusion: Data: Summary of report's conclusion. Goal: Summarize. Viz: Text. Justification: Closure. Method: HTML/Tailwind. (CONFIRMING NO SVG)
+    -->
+    <style>
+        body { font-family: 'Inter', 'Hind Siliguri', sans-serif; background-color: #f0f8ff; }
+        .chart-container { position: relative; width: 100%; max-width: 400px; margin-left: auto; margin-right: auto; height: 300px; max-height: 350px; }
+        @media (min-width: 768px) { .chart-container { height: 350px; max-height: 400px; } }
+        .stat-number { font-size: 3rem; line-height: 1; font-weight: 700; color: #ffa600; }
+        .section-title { color: #003f5c; }
+        .card { background-color: white; border-left: 5px solid #008793; }
+        .swot-grid > div { background-color: #f8fafc; border: 1px solid #e2e8f0; }
+        .tag { background-color: #a0ced9; color: #003f5c; padding: 0.25rem 0.75rem; border-radius: 0.375rem; font-size: 0.875rem; display: inline-block; margin: 0.25rem; }
+        h1, h2, h3 { font-family: 'Hind Siliguri', sans-serif; }
+    </style>
+</head>
+<body class="text-slate-800">
+    <header class="bg-white shadow-md py-6">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl font-bold section-title">ডিজিটাল অ্যাডভোকেসি: প্রবণতা ও বিশ্লেষণ</h1>
+            <p class="text-lg text-slate-600 mt-2">সত্য ও ন্যায়বিচারের পক্ষে আওয়াজ তোলার কৌশল</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-8 space-y-12">
+
+        <section id="introduction" class="text-center p-6 rounded-lg bg-white shadow-lg">
+            <h2 class="text-3xl font-semibold mb-4 section-title">ভূমিকা: বার্তার শক্তি</h2>
+            <p class="text-slate-700 leading-relaxed max-w-3xl mx-auto mb-6">
+                এই ইনফোগ্রাফিকটি দশটি শক্তিশালী সাদাকালো ছবির মাধ্যমে প্রকাশিত একটি প্রতিবাদের গভীরতা এবং এর পেছনের বিশ্লেষণ তুলে ধরে। এই ছবিগুলো সত্য, জবাবদিহিতা, এবং ফিলিস্তিনের প্রতি সংহতির মতো গুরুত্বপূর্ণ বিষয়গুলোকে কেন্দ্র করে তৈরি। ক্যাপশনগুলো এখানে শুধু ছবির বর্ণনা নয়, বরং দর্শকদের মধ্যে সচেতনতা এবং সক্রিয়তা জাগানোর একটি শক্তিশালী মাধ্যম।
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                <div class="bg-slate-50 p-6 rounded-lg shadow text-center">
+                    <div class="stat-number">১০</div>
+                    <p class="text-xl font-semibold text-slate-700 mt-2">টি অনুপ্রেরণামূলক ছবি</p>
+                    <p class="text-slate-600">প্রতিবাদের মূর্ত প্রতীক</p>
+                </div>
+                <div class="bg-slate-50 p-6 rounded-lg shadow text-center">
+                    <div class="stat-number">১৬</div>
+                    <p class="text-xl font-semibold text-slate-700 mt-2">টি বিশ্লেষণাত্মক পর্যবেক্ষণ</p>
+                    <p class="text-slate-600">কৌশলগত দিকনির্দেশনা</p>
+                </div>
+            </div>
+            <p class="text-slate-700 leading-relaxed max-w-3xl mx-auto mt-6">
+                ডিজিটাল প্ল্যাটফর্মে এই ভিজ্যুয়াল বার্তাগুলোর সঠিক ব্যবহার কীভাবে বৃহত্তর জনগোষ্ঠীর কাছে পৌঁছানো যায় এবং একটি ইতিবাচক পরিবর্তন আনা যায়, তা এই ইনফোগ্রাফিকের মূল বিষয়।
+            </p>
+        </section>
+
+        <section id="core-principles" class="p-6 rounded-lg bg-white shadow-lg">
+            <h2 class="text-3xl font-semibold mb-6 text-center section-title">অ্যাডভোকেসির মূলনীতি</h2>
+            <p class="text-center text-slate-700 leading-relaxed max-w-3xl mx-auto mb-8">
+                কার্যকর ডিজিটাল অ্যাডভোকেসির জন্য কিছু মৌলিক নীতি অনুসরণ করা অপরিহার্য। এই নীতিগুলো বার্তার প্রভাব বহুগুণে বৃদ্ধি করে এবং দর্শকদের সাথে গভীর সংযোগ স্থাপন করে।
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-2 text-teal-600">প্রামাণিকতা ও অনুরণন</h3>
+                    <p class="text-slate-600 leading-relaxed">বার্তা অবশ্যই真实 এবং লক্ষ্য দর্শকদের সাথে মানসিক সংযোগ স্থাপনকারী হতে হবে।</p>
+                </div>
+                <div class="card p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-2 text-teal-600">সংক্ষিপ্ততা ও স্পষ্টতা</h3>
+                    <p class="text-slate-600 leading-relaxed">দ্রুত মনোযোগ আকর্ষণের জন্য ক্যাপশন সংক্ষিপ্ত ও দ্ব্যর্থহীন হতে হবে।</p>
+                </div>
+                <div class="card p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-2 text-teal-600">আবেগিক অনুরণন</h3>
+                    <p class="text-slate-600 leading-relaxed">সহানুভূতি ও সংহতি জাগিয়ে তোলে এমন ভাষা ব্যবহার করা জরুরি।</p>
+                </div>
+                <div class="card p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-2 text-teal-600">প্রসঙ্গিকীকরণ</h3>
+                    <p class="text-slate-600 leading-relaxed">ভুল ব্যাখ্যা এড়াতে ছবির সঠিক প্রেক্ষাপট তুলে ধরা অত্যাবশ্যক।</p>
+                </div>
+                <div class="card p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-2 text-teal-600">সুরের ধারাবাহিকতা</h3>
+                    <p class="text-slate-600 leading-relaxed">বার্তার গুরুত্বের সাথে সুরের মিল থাকতে হবে, প্রয়োজনে আশার আলোও দেখাতে হবে।</p>
+                </div>
+                <div class="card p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-2 text-teal-600">পদক্ষেপের আহ্বান</h3>
+                    <p class="text-slate-600 leading-relaxed"> দর্শকদের সক্রিয় অংশগ্রহণে উৎসাহিত করতে সূক্ষ্মভাবে হলেও আহ্বান জানানো উচিত।</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="message-power" class="p-6 rounded-lg bg-white shadow-lg">
+            <h2 class="text-3xl font-semibold mb-6 text-center section-title">বার্তার শক্তি: মূল থিম বিশ্লেষণ</h2>
+            <p class="text-center text-slate-700 leading-relaxed max-w-3xl mx-auto mb-8">
+                দশটি ছবির মূল বার্তাগুলোকে বিশ্লেষণ করলে কিছু প্রধান থিম উঠে আসে, যা প্রতিবাদের সামগ্রিক চিত্র বুঝতে সাহায্য করে। এই থিমগুলো দর্শকদের মনোযোগ আকর্ষণ করে এবং বার্তার গভীরতা বৃদ্ধি করে।
+            </p>
+            <div class="chart-container bg-slate-50 p-4 rounded-lg shadow">
+                <canvas id="messageThemesChart"></canvas>
+            </div>
+            <p class="text-center text-slate-600 mt-4 leading-relaxed">
+                উপরের ডোনাট চার্টটি দেখাচ্ছে কিভাবে বিভিন্ন বার্তা যেমন 'সত্যের দাবি', 'অধিকার ও স্বাধীনতা', 'নীরবতার বিরুদ্ধে সোচ্চার হওয়া', 'নেতৃত্বের বিচার' এবং 'কণ্ঠস্বরের শক্তি' এই প্রতিবাদে গুরুত্ব পেয়েছে। প্রতিটি থিম দর্শকদের ভিন্ন ভিন্ন দিক থেকে অনুপ্রাণিত করে।
+            </p>
+        </section>
+
+        <section id="analytical-insights" class="p-6 rounded-lg bg-white shadow-lg">
+            <h2 class="text-3xl font-semibold mb-6 text-center section-title">গুরুত্বপূর্ণ বিশ্লেষণাত্মক পর্যবেক্ষণ</h2>
+            <p class="text-center text-slate-700 leading-relaxed max-w-3xl mx-auto mb-8">
+                প্রতিবেদন থেকে প্রাপ্ত কিছু গুরুত্বপূর্ণ বিশ্লেষণাত্মক পর্যবেক্ষণ ডিজিটাল অ্যাডভোকেসির কার্যকারিতা এবং কৌশলগত দিক নির্দেশ করে।
+            </p>
+            <div class="space-y-6">
+                <div class="card p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-2" style="color: #003f5c;">১. ভিজ্যুয়াল ও লেখার দ্বৈত ভূমিকা (পর্যবেক্ষণ ১)</h3>
+                    <p class="text-slate-600 leading-relaxed">শক্তিশালী ছবি মনোযোগ আকর্ষণ করে, তবে কার্যকর ক্যাপশন ছবির প্রেক্ষাপট, আবেগ এবং পদক্ষেপের আহ্বানকে সুস্পষ্ট করে তোলে। সাদাকালো বিন্যাস বার্তার গাম্ভীর্য বাড়ায়।</p>
+                </div>
+                <div class="card p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-2" style="color: #003f5c;">২. সংহতির মনোবিজ্ঞান (পর্যবেক্ষণ ৩)</h3>
+                    <p class="text-slate-600 leading-relaxed">সফল অ্যাডভোকেসি কেবল তথ্য প্রচার নয়, বরং শেয়ারিং এবং সম্মিলিত পদক্ষেপের মনোবিজ্ঞানকে কাজে লাগায়। ক্যাপশন সংহতি বাড়াতে, আবেগিক সংযোগ তৈরি করতে এবং অংশগ্রহণের পথ দেখাতে সাহায্য করে।</p>
+                </div>
+                <div class="card p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-2" style="color: #003f5c;">৩. তথ্য যুদ্ধক্ষেত্রে নেভিগেট করা (পর্যবেক্ষণ ৪)</h3>
+                    <p class="text-slate-600 leading-relaxed">সামাজিক মাধ্যম একটি বর্ণনার যুদ্ধক্ষেত্র। ক্যাপশনগুলো নির্ভুল, প্রাসঙ্গিক এবং ভুল তথ্য প্রতিরোধে সক্ষম হওয়া উচিত, বিশেষ করে সংবেদনশীল ভূ-রাজনৈতিক বিষয়ে।</p>
+                </div>
+                 <div class="card p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-2" style="color: #003f5c;">৪. সম্প্রদায় গঠন ও বর্ণনা নিয়ন্ত্রণ (পর্যবেক্ষণ ১৫)</h3>
+                    <p class="text-slate-600 leading-relaxed">হ্যাশট্যাগ কেবল আবিষ্কারযোগ্যতা বাড়ায় না, বরং সম্প্রদায় গঠন এবং সম্মিলিত বর্ণনা নিয়ন্ত্রণেও গুরুত্বপূর্ণ ভূমিকা রাখে। আন্দোলন-নির্দিষ্ট হ্যাশট্যাগ সংহতি প্রচার করে।</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="hashtag-strategy" class="p-6 rounded-lg bg-white shadow-lg">
+            <h2 class="text-3xl font-semibold mb-6 text-center section-title">হ্যাশট্যাগ কৌশল ও ব্যস্ততা</h2>
+            <p class="text-center text-slate-700 leading-relaxed max-w-3xl mx-auto mb-8">
+                সঠিক হ্যাশট্যাগ ব্যবহার বার্তার দৃশ্যমানতা বাড়ায় এবং সমমনা аудиторияর কাছে পৌঁছাতে সাহায্য করে। এর পাশাপাশি, সক্রিয়ভাবে দর্শকদের সাথে যুক্ত হওয়াও জরুরি।
+            </p>
+            <div class="mb-6 text-center">
+                <h3 class="text-xl font-semibold mb-3 text-teal-600">প্রস্তাবিত হ্যাশট্যাগ প্রকার:</h3>
+                <div class="flex flex-wrap justify-center gap-2">
+                    <span class="tag">#HumanRights</span> <span class="tag">#Justice</span> <span class="tag">#Solidarity</span>
+                    <span class="tag">#SpeakUp</span> <span class="tag">#PalestineSolidarity</span> <span class="tag">#মানবাধিকার</span>
+                    <span class="tag">#TakeAction</span> <span class="tag">#সত্যেরজন্যকথা</span> <span class="tag">#FreePalestine</span>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-xl font-semibold mb-3 text-center text-teal-600">আলোচনা ও শেয়ার বাড়ানোর টিপস:</h3>
+                <ul class="list-disc list-inside max-w-xl mx-auto space-y-2 text-slate-600 leading-relaxed">
+                    <li>পোস্ট শেয়ার করতে এবং প্রাসঙ্গিক বন্ধুদের ট্যাগ করতে উৎসাহিত করুন।</li>
+                    <li>আলোচনা শুরু করতে ক্যাপশনে প্রশ্ন জিজ্ঞাসা করুন।</li>
+                    <li>মন্তব্যের প্রতিক্রিয়া জানিয়ে সম্প্রদায় তৈরি করুন।</li>
+                    <li>বিভিন্ন প্ল্যাটফর্মে বিষয়বস্তু শেয়ার করুন (ক্রস-প্রমোশন)।</li>
+                    <li>নিয়মিত পোস্ট করে দৃশ্যমানতা বজায় রাখুন।</li>
+                    <li>সর্বদা তথ্যের নির্ভুলতা নিশ্চিত করুন।</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="swot-analysis" class="p-6 rounded-lg bg-white shadow-lg">
+            <h2 class="text-3xl font-semibold mb-6 text-center section-title">ডিজিটাল অ্যাডভোকেসির SWOT বিশ্লেষণ</h2>
+            <p class="text-center text-slate-700 leading-relaxed max-w-3xl mx-auto mb-8">
+                এই ধরনের ডিজিটাল অ্যাডভোকেসি অভিযানের শক্তি, দুর্বলতা, সুযোগ এবং হুমকিগুলো বোঝা কৌশল নির্ধারণে সহায়ক।
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 swot-grid">
+                <div class="p-6 rounded-lg shadow">
+                    <h3 class="text-2xl font-semibold mb-3" style="color: #008793;">শক্তি (Strengths)</h3>
+                    <ul class="list-disc list-inside space-y-1 text-slate-600">
+                        <li>শক্তিশালী ভিজ্যুয়াল বার্তার ক্ষমতা।</li>
+                        <li>সম্মিলিত কণ্ঠস্বর ও সংহতির প্রভাব।</li>
+                        <li>স্পষ্ট এবং আবেগপূর্ণ বার্তা।</li>
+                        <li>তরুণ প্রজন্মের সক্রিয় অংশগ্রহণ।</li>
+                    </ul>
+                </div>
+                <div class="p-6 rounded-lg shadow">
+                    <h3 class="text-2xl font-semibold mb-3" style="color: #ffa600;">দুর্বলতা (Weaknesses)</h3>
+                    <ul class="list-disc list-inside space-y-1 text-slate-600">
+                        <li>তথ্যের যুদ্ধক্ষেত্রে ভুল তথ্য ছড়ানোর ঝুঁকি।</li>
+                        <li>প্ল্যাটফর্ম কর্তৃক সেন্সরশিপের সম্ভাবনা।</li>
+                        <li>ডিজিটাল ইকো চেম্বারে আবদ্ধ হয়ে পড়া।</li>
+                        <li>সক্রিয় কর্মীদের মানসিক চাপ ও ক্লান্তি।</li>
+                    </ul>
+                </div>
+                <div class="p-6 rounded-lg shadow">
+                    <h3 class="text-2xl font-semibold mb-3" style="color: #2f4b7c;">সুযোগ (Opportunities)</h3>
+                    <ul class="list-disc list-inside space-y-1 text-slate-600">
+                        <li>বিশ্বব্যাপী সংহতি অর্জনের সম্ভাবনা।</li>
+                        <li>দ্বিভাষিক বার্তার মাধ্যমে বৃহত্তর দর্শকের কাছে পৌঁছানো।</li>
+                        <li>সামাজিক মাধ্যমে ভাইরাল হওয়ার প্রবণতা।</li>
+                        <li>নতুন প্রজন্মের মধ্যে সচেতনতা বৃদ্ধি।</li>
+                    </ul>
+                </div>
+                <div class="p-6 rounded-lg shadow">
+                    <h3 class="text-2xl font-semibold mb-3" style="color: #003f5c;">হুমকি (Threats)</h3>
+                    <ul class="list-disc list-inside space-y-1 text-slate-600">
+                        <li>প্রতিপক্ষ কর্তৃক বিকৃত তথ্য প্রচার।</li>
+                        <li>অ্যাডভোকেটদের উপর ডিজিটাল আক্রমণ বা হয়রানি।</li>
+                        <li>আইনগত বিধিনিষেধ ও নজরদারি।</li>
+                        <li>বার্তার প্রভাব সময়ের সাথে কমে যাওয়া।</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="conclusion" class="text-center p-6 rounded-lg bg-white shadow-lg">
+            <h2 class="text-3xl font-semibold mb-4 section-title">উপসংহার: ভাগ করা সত্যের স্থায়ী শক্তি</h2>
+            <p class="text-slate-700 leading-relaxed max-w-3xl mx-auto">
+                এই ইনফোগ্রাফিক এবং এর পেছনের প্রতিবেদনটি পুনরায় নিশ্চিত করে যে, সত্য, জবাবদিহিতা এবং অন্যায়ের বিরুদ্ধে কথা বলার গুরুত্ব অপরিসীম। ছবি এবং ক্যাপশনগুলো মানবাধিকার ও ন্যায়বিচারের সংগ্রামে শক্তিশালী হাতিয়ার। প্রতিটি শেয়ার, প্রতিটি মন্তব্য এবং সংহতির প্রতিটি কাজ সত্যকে শক্তিশালী করে এবং নীরবতাকে চ্যালেঞ্জ করে। সম্মিলিত প্রচেষ্টাই শান্তি ও ন্যায়বিচার প্রতিষ্ঠার চূড়ান্ত ক্ষমতা রাখে।
+            </p>
+        </section>
+    </main>
+
+    <footer class="bg-slate-800 text-slate-300 text-center p-6 mt-12">
+        <p>&copy; ২০২৫। ডিজিটাল অ্যাডভোকেসি ইনফোগ্রাফিক। সর্বস্বত্ব সংরক্ষিত।</p>
+    </footer>
+
+    <script>
+        function wrapLabel(str, maxWidth) {
+            if (str.length <= maxWidth) return str;
+            const words = str.split(' ');
+            let currentLine = '';
+            const lines = [];
+            for (let word of words) {
+                if ((currentLine + word).length > maxWidth && currentLine.length > 0) {
+                    lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            }
+            lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const messageThemesCtx = document.getElementById('messageThemesChart').getContext('2d');
+        const messageThemesChart = new Chart(messageThemesCtx, {
+            type: 'doughnut',
+            data: {
+                labels: [
+                    wrapLabel('সত্যের দাবি', 16), 
+                    wrapLabel('অধিকার ও স্বাধীনতা', 16), 
+                    wrapLabel('নীরবতার বিরুদ্ধে', 16), 
+                    wrapLabel('নেতৃত্ব ও বিচার', 16), 
+                    wrapLabel('কণ্ঠস্বরের শক্তি', 16)
+                ],
+                datasets: [{
+                    label: 'বার্তার থিম',
+                    data: [2, 2, 3, 1, 2], // ছবি ১,৭ (সত্য); ছবি ২,৬ (অধিকার); ছবি ৩,৫,৮ (নীরবতা); ছবি ৪ (নেতৃত্ব); ছবি ৯,১০ (কণ্ঠ)
+                    backgroundColor: [
+                        '#003f5c', // গাঢ় নীল
+                        '#2f4b7c', // মাঝারি নীল
+                        '#008793', // টিল
+                        '#a0ced9', // হালকা নীল
+                        '#ffa600'  // কমলা
+                    ],
+                    borderColor: '#ffffff',
+                    borderWidth: 2,
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            font: {
+                                family: "'Hind Siliguri', sans-serif",
+                                size: 12
+                            },
+                            color: '#334155', // slate-700
+                            padding: 15,
+                            boxWidth: 15,
+                             generateLabels: function(chart) {
+                                const data = chart.data;
+                                if (data.labels.length && data.datasets.length) {
+                                    return data.labels.map(function(label, i) {
+                                        const meta = chart.getDatasetMeta(0);
+                                        const style = meta.controller.getStyle(i);
+                                        const labelText = Array.isArray(label) ? label.join(' ') : label;
+                                        return {
+                                            text: labelText,
+                                            fillStyle: style.backgroundColor,
+                                            strokeStyle: style.borderColor,
+                                            lineWidth: style.borderWidth,
+                                            hidden: isNaN(data.datasets[0].data[i]) || meta.data[i].hidden,
+                                            index: i
+                                        };
+                                    });
+                                }
+                                return [];
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: function(tooltipItems) {
+                                const item = tooltipItems[0];
+                                let label = item.chart.data.labels[item.dataIndex];
+                                if (Array.isArray(label)) {
+                                  return label.join(' ');
+                                } else {
+                                  return label;
+                                }
+                            },
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed !== null) {
+                                    label += context.parsed + ' টি ছবি';
+                                }
+                                return label;
+                            }
+                        },
+                        bodyFont: {
+                            family: "'Hind Siliguri', sans-serif",
+                            size: 12
+                        },
+                        titleFont: {
+                            family: "'Hind Siliguri', sans-serif",
+                            size: 14
+                        },
+                        backgroundColor: '#003f5c',
+                        titleColor: '#ffffff',
+                        bodyColor: '#ffffff',
+                        padding: 10,
+                        cornerRadius: 4
+                    }
+                },
+                animation: {
+                    animateScale: true,
+                    animateRotate: true
+                }
+            }
+        });
+    </script>
+</body>
+  </html>

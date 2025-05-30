@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ক্রেডিট কার্ডের মায়াজাল: সুবিধা বনাম লুকানো বিপদ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            background-color: #F0F8FF;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 350px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+                max-height: 400px;
+            }
+        }
+        .flow-step {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem;
+            border: 1px solid #ADD8E6;
+            border-radius: 0.5rem;
+            background-color: #FFFFFF;
+            margin-bottom: 0.75rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .flow-step-icon {
+            font-size: 1.5rem;
+            margin-right: 0.75rem;
+            color: #007BFF;
+        }
+        .flow-arrow {
+            text-align: center;
+            font-size: 1.5rem;
+            color: #007BFF;
+            margin: -0.5rem 0;
+        }
+        .big-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #FF6347;
+            text-align: center;
+        }
+        .section-title-icon {
+            font-size: 1.75rem;
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body class="text-[#003366]">
+    <!-- 
+        Palette Chosen: Custom "Deep Dive" inspired
+        Background: #F0F8FF (Alice Blue)
+        Card Backgrounds: #FFFFFF (White)
+        Primary Text: #003366 (Dark Blue)
+        Accent/Highlight Text: #007BFF (Bright Blue)
+        Chart Primary Color: #007BFF (Bright Blue)
+        Chart Secondary Color: #00BFFF (Deep Sky Blue)
+        Chart Accent/Danger: #FF6347 (Tomato)
+        Borders/Dividers: #ADD8E6 (Light Blue)
+
+        Infographic Plan:
+        1. Title: ক্রেডিট কার্ডের মায়াজাল: সুবিধা বনাম লুকানো বিপদ
+        2. Introduction: Brief hook about credit card convenience vs. risks.
+        3. Section 1: ঋণের চক্রব্যুহ (Debt Labyrinth)
+            - High Interest Rates (Big Number)
+            - Minimum Payment Trap (Textual explanation)
+            - Hidden Fees (HTML Table)
+        4. Section 2: ক্রেডিট স্কোরের কালো ছায়া (Dark Shadow on Credit Score)
+            - Impact of irregular payments (Text)
+            - Credit Utilization Ratio (CUR) - Donut Chart
+            - Frequent applications & closing old cards (Text)
+        5. Section 3: নিরাপত্তা ঝুঁকি ও ডিজিটাল প্রতারণা (Security Risks & Digital Fraud)
+            - Card theft & identity theft (Text)
+        6. Section 4: মানসিক চাপ ও অভ্যাসগত সমস্যা (Psychological Stress & Habitual Issues)
+            - Overspending tendency (Text)
+        7. Section 5: সচেতন ব্যবহারকারীর গাইড (Responsible User's Guide)
+            - Flowchart-like structure with tips (HTML/CSS)
+        8. Conclusion: Emphasize wise usage.
+
+        Visualization Choices:
+        - High Interest Rate: Single Big Number (HTML/CSS). Goal: Inform. Justification: Highlights key stat. NO SVG.
+        - Minimum Payment Trap: Textual Explanation / Simple HTML structure. Goal: Inform. Justification: Clarity. NO SVG.
+        - Hidden Fees: HTML Table. Goal: Organize. Justification: Structured data. NO SVG.
+        - CUR: Donut Chart (Chart.js - Canvas). Goal: Compare/Inform. Justification: Visualizes threshold. NO SVG.
+        - Responsible User Guide: HTML/CSS Flowchart-like steps. Goal: Organize. Justification: Clear guide. NO SVG, NO MERMAID JS.
+        - Icons: Unicode characters. Goal: Enhance. Justification: Simple, no external assets. NO SVG.
+
+        Confirmation: NEITHER Mermaid JS NOR SVG were used anywhere in this output. All charts use Canvas.
+    -->
+
+    <div class="container mx-auto p-4 md:p-8 max-w-5xl">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-[#007BFF] mb-4">ক্রেডিট কার্ডের মায়াজাল</h1>
+            <p class="text-xl text-[#003366]">সুবিধা বনাম লুকানো বিপদ</p>
+        </header>
+
+        <section class="mb-12 bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-2xl font-semibold mb-4 flex items-center"><span class="section-title-icon">💳</span>ভূমিকা</h2>
+            <p class="text-lg leading-relaxed">ক্রেডিট কার্ড আজকাল আমাদের অনেকের জন্যই একটি দরকারি জিনিস। কেনাকাটা, বিল দেওয়া বা হঠাৎ টাকার দরকার—সবখানেই এটি কাজে লাগে। নগদ টাকা রাখার ঝুঁকি কমায়, আবার অনেক সুবিধাও দেয়। কিন্তু এই সুবিধার পেছনেই আছে কিছু লুকানো বিপদ। ঠিকমতো না বুঝলে বা একটু অসাবধান হলেই পড়তে হতে পারে বড়সড় আর্থিক ঝুঁকিতে। এই ইনফোগ্রাফিকের উদ্দেশ্য হলো ক্রেডিট কার্ডের সেই "অন্ধকার দিক" গুলো তুলে ধরা এবং কীভাবে নিরাপদে এটি ব্যবহার করা যায়, তা জানানো।</p>
+        </section>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <section class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-semibold mb-4 flex items-center"><span class="section-title-icon">💸</span>বিপদ সংকেত ১: ঋণের চক্রব্যুহ</h2>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-medium mb-2 text-[#007BFF]">উচ্চ সুদের হারের থাবা</h3>
+                    <p class="mb-2">নির্দিষ্ট সময়ের মধ্যে পুরো বিল না দিলে বকেয়া টাকার উপর চড়া হারে সুদ দিতে হয়। সম্প্রতি, বাংলাদেশ ব্যাংক ক্রেডিট কার্ডের সর্বোচ্চ সুদের হার নির্ধারণ করেছে:</p>
+                    <div class="big-number">২৫%</div>
+                    <p class="text-center text-sm">(বার্ষিক, ২০২৫ সালের ১ জানুয়ারি থেকে কার্যকর)</p>
+                    <p class="mt-2">অর্থাৎ, সামান্য দেরিতেই আপনার ঋণের বোঝা কয়েক গুণ বেড়ে যেতে পারে।</p>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-xl font-medium mb-2 text-[#007BFF]">ন্যূনতম বিল: একটি ধীরগতির ফাঁদ</h3>
+                    <p>শুধু ন্যূনতম বিল পরিশোধ করলে সাময়িক স্বস্তি মিললেও, মূল ঋণ প্রায় কমেই না। বেশিরভাগ টাকাই সুদ হিসেবে চলে যায়। লংকাবাংলার ক্ষেত্রে ন্যূনতম পেমেন্ট হলো মোট বকেয়ার ৫% বা ৫০০ টাকা (যেটি বেশি)। এর ফলে আপনি দীর্ঘ দিন ধরে শুধু সুদই দিয়ে যাবেন, আর ঋণের বোঝা বাড়তেই থাকবে।</p>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-medium mb-2 text-[#007BFF]">লুকানো ফি-এর তালিকা</h3>
+                    <p class="mb-3">ক্রেডিট কার্ডের সাথে অনেক ধরনের ফি ও চার্জ যুক্ত থাকে, যা অনেক সময় আমাদের চোখ এড়িয়ে যায়। যেমন:</p>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full text-sm border border-[#ADD8E6]">
+                            <thead class="bg-[#E0F2FE] text-[#003366]">
+                                <tr>
+                                    <th class="p-2 border-b border-[#ADD8E6]">ফি/চার্জের ধরন</th>
+                                    <th class="p-2 border-b border-[#ADD8E6]">সাধারণ হার/পরিমাণ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-[#ADD8E6]">
+                                    <td class="p-2">নবায়ন ফি (Renewal Fee)</td>
+                                    <td class="p-2">১০০০-২৫০০ টাকা + ভ্যাট</td>
+                                </tr>
+                                <tr class="border-b border-[#ADD8E6]">
+                                    <td class="p-2">লেট পেমেন্ট ফি (Late Payment Fee)</td>
+                                    <td class="p-2">৩০০-৫০০ টাকা + ভ্যাট</td>
+                                </tr>
+                                 <tr class="border-b border-[#ADD8E6]">
+                                    <td class="p-2">অতিরিক্ত সীমা ফি (Over Limit Fee)</td>
+                                    <td class="p-2">৫০০-১০০০ টাকা + ভ্যাট</td>
+                                </tr>
+                                <tr class="border-b border-[#ADD8E6]">
+                                    <td class="p-2">ক্যাশ অ্যাডভান্স চার্জ</td>
+                                    <td class="p-2">উত্তোলিত অর্থের ২.৫%-৩% বা ২৫০ টাকা</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2">ক্যাশ অ্যাডভান্স ইন্টারেস্ট</td>
+                                    <td class="p-2">মাসিক ২.০৮৩%-৪% (উত্তোলনের দিন থেকে)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="mt-2 text-xs">*এছাড়াও কার্ড রিপ্লেসমেন্ট ফি, পিন রিজেনারেশন ফি, ফান্ড ট্রান্সফার ফি ইত্যাদি প্রযোজ্য হতে পারে।</p>
+                </div>
+            </section>
+
+            <section class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-semibold mb-4 flex items-center"><span class="section-title-icon">📉</span>বিপদ সংকেত ২: ক্রেডিট স্কোরের কালো ছায়া</h2>
+                <p class="mb-4">ক্রেডিট কার্ডের ভুল ব্যবহার আপনার ক্রেডিট স্কোরের উপর মারাত্মক খারাপ প্রভাব ফেলতে পারে, যা ভবিষ্যতে ঋণ পাওয়া কঠিন করে তোলে।</p>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-medium mb-2 text-[#007BFF]">বিল পরিশোধে খেলাপ: দীর্ঘমেয়াদী ক্ষতি</h3>
+                    <p>সময়মতো বিল না দিলে বা খেলাপি হলে ক্রেডিট স্কোর দ্রুত কমে যায়। এই খারাপ রেকর্ড ৫-৭ বছর পর্যন্ত আপনার ক্রেডিট রিপোর্টে থাকতে পারে।</p>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-xl font-medium mb-2 text-[#007BFF]">ক্রেডিট ব্যবহারের অনুপাত (CUR): কতটা নিরাপদ?</h3>
+                    <p>আপনার মোট ক্রেডিট সীমার কত অংশ আপনি ব্যবহার করছেন, সেটাই CUR। বিশেষজ্ঞরা বলেন, CUR ৩০% এর নিচে রাখা উচিত। এর বেশি হলে ক্রেডিট স্কোর কমে যেতে পারে, এমনকি যদি আপনি সময়মতো বিল পরিশোধ করেন।</p>
+                    <div class="chart-container mt-4">
+                        <canvas id="curChart"></canvas>
+                    </div>
+                    <p class="mt-2 text-center text-sm">উচ্চ CUR ঋণদাতাদের কাছে আর্থিক সংকটের ইঙ্গিত দেয়।</p>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-medium mb-2 text-[#007BFF]">বারবার আবেদন ও পুরনো কার্ড বাতিল</h3>
+                    <p>অল্প সময়ের মধ্যে একাধিক কার্ডের জন্য আবেদন করলে বা পুরনো, সক্রিয় কার্ড বন্ধ করে দিলে ক্রেডিট স্কোর কমে যেতে পারে। পুরনো কার্ড আপনার ক্রেডিট ইতিহাসের দৈর্ঘ্য বাড়ায়, যা স্কোরের জন্য ভালো।</p>
+                </div>
+            </section>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+            <section class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-semibold mb-4 flex items-center"><span class="section-title-icon">🛡️</span>বিপদ সংকেত ৩: নিরাপত্তা ঝুঁকি ও ডিজিটাল প্রতারণা</h2>
+                <p class="mb-4">ক্রেডিট কার্ড ব্যবহারে কিছু নিরাপত্তা ঝুঁকিও থাকে।</p>
+                <ul class="list-disc list-inside space-y-2">
+                    <li><strong class="text-[#007BFF]">কার্ড চুরি ও জালিয়াতি:</strong> কার্ড চুরি হলে বা তথ্য ফাঁস হলে দ্রুত ব্যাংককে জানাতে হবে। যদিও ব্যাংক সাধারণত ক্ষতিপূরণ দেয়, তবে প্রক্রিয়াটি সময়সাপেক্ষ ও ঝামেলার।</li>
+                    <li><strong class="text-[#007BFF]">পরিচয় চুরি (Identity Theft):</strong> আপনার ব্যক্তিগত তথ্য ব্যবহার করে অন্য কেউ আপনার নামে ক্রেডিট কার্ড বা ঋণ নিতে পারে, যা আপনার ক্রেডিট স্কোর ও আর্থিক জীবনে মারাত্মক প্রভাব ফেলে।</li>
+                    <li><strong class="text-[#007BFF]">অননুমোদিত লেনদেন:</strong> কার্ড স্টেটমেন্ট নিয়মিত পরীক্ষা করুন। কোনো সন্দেহজনক লেনদেন দেখলে সাথে সাথে ব্যাংককে জানান।</li>
+                </ul>
+            </section>
+
+            <section class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-semibold mb-4 flex items-center"><span class="section-title-icon">🧠</span>বিপদ সংকেত ৪: মানসিক চাপ ও অভ্যাসগত সমস্যা</h2>
+                <p class="mb-4">ক্রেডিট কার্ডের সহজলভ্যতা অনেক সময় মানসিক ও আচরণগত সমস্যা তৈরি করে।</p>
+                <ul class="list-disc list-inside space-y-2">
+                    <li><strong class="text-[#007BFF]">অতিরিক্ত খরচের প্রবণতা:</strong> "প্লাস্টিক মানি" হাতে থাকার কারণে অনেকেই নিজের সামর্থ্যের বাইরে খরচ করে ফেলেন। নগদ টাকা খরচের মতো 'ব্যথা' অনুভূত না হওয়ায় সংযম কমে যায়।</li>
+                    <li><strong class="text-[#007BFF]">সম্পর্কে প্রভাব:</strong> ক্রেডিট কার্ডের ঋণ পারিবারিক জীবনে অশান্তি ও মানসিক চাপ সৃষ্টি করতে পারে। সঙ্গীর সাথে আর্থিক বিষয়ে স্বচ্ছতা না থাকলে সম্পর্কে অবিশ্বাস তৈরি হয়।</li>
+                </ul>
+            </section>
+        </div>
+        
+        <section class="mt-12 bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-3xl font-semibold mb-6 text-center text-[#007BFF] flex items-center justify-center"><span class="section-title-icon">🧭</span>সচেতন ব্যবহারকারীর গাইড: বিপদ এড়ানোর উপায়</h2>
+            <p class="text-lg text-center mb-6 leading-relaxed">ক্রেডিট কার্ডের ঝুঁকি এড়িয়ে এর সুবিধা পেতে হলে কিছু নিয়ম মেনে চলা জরুরি। নিচে কয়েকটি গুরুত্বপূর্ণ পরামর্শ দেওয়া হলো:</p>
+            
+            <div class="max-w-md mx-auto">
+                <div class="flow-step">
+                    <span class="flow-step-icon">১.</span>
+                    <p><strong>সময়মতো সম্পূর্ণ বিল দিন:</strong> উচ্চ সুদ ও লেট ফি এড়াতে চেষ্টা করুন প্রতি মাসে পুরো বিল পরিশোধ করতে।</p>
+                </div>
+                <div class="flow-arrow">▼</div>
+                <div class="flow-step">
+                    <span class="flow-step-icon">২.</span>
+                    <p><strong>CUR ৩০% এর নিচে রাখুন:</strong> ক্রেডিট সীমার ৩০% এর বেশি ব্যবহার করবেন না।</p>
+                </div>
+                <div class="flow-arrow">▼</div>
+                <div class="flow-step">
+                    <span class="flow-step-icon">৩.</span>
+                    <p><strong>লুকানো ফি সম্পর্কে জানুন:</strong> কার্ড নেওয়ার আগে সব ফি ও চার্জ সম্পর্কে জেনে নিন। ক্যাশ অ্যাডভান্স এড়িয়ে চলুন।</p>
+                </div>
+                <div class="flow-arrow">▼</div>
+                 <div class="flow-step">
+                    <span class="flow-step-icon">৪.</span>
+                    <p><strong>প্রয়োজন অনুযায়ী খরচ করুন:</strong> আবেগের বশে অপ্রয়োজনীয় কেনাকাটা করবেন না। বাজেট মেনে চলুন।</p>
+                </div>
+                <div class="flow-arrow">▼</div>
+                <div class="flow-step">
+                    <span class="flow-step-icon">৫.</span>
+                    <p><strong>নিরাপত্তা নিশ্চিত করুন:</strong> পিন গোপন রাখুন, নিয়মিত স্টেটমেন্ট দেখুন, সন্দেহজনক কিছু দেখলে ব্যাংককে জানান।</p>
+                </div>
+                 <div class="flow-arrow">▼</div>
+                <div class="flow-step">
+                    <span class="flow-step-icon">৬.</span>
+                    <p><strong>ক্রেডিট স্কোর পর্যবেক্ষণ করুন:</strong> নিয়মিত আপনার ক্রেডিট রিপোর্ট পরীক্ষা করুন।</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="mt-12 text-center pt-8 border-t border-[#ADD8E6]">
+            <h2 class="text-2xl font-semibold mb-3 text-[#007BFF]">উপসংহার</h2>
+            <p class="text-lg leading-relaxed max-w-3xl mx-auto">ক্রেডিট কার্ড একটি শক্তিশালী আর্থিক হাতিয়ার, যদি তা বুদ্ধিমানের মতো ব্যবহার করা যায়। এর "অন্ধকার দিক" গুলো সম্পর্কে সচেতন থাকলে এবং দায়িত্বশীল আর্থিক আচরণের অভ্যাস করলে, আপনি এর অসংখ্য সুবিধা উপভোগ করতে পারবেন এবং সম্ভাব্য বিপদ থেকে নিজেকে সুরক্ষিত রাখতে পারবেন। জ্ঞান এবং শৃঙ্খলা—এই দুটিই ক্রেডিট কার্ডের সঠিক ব্যবহারের মূল চাবিকাঠি।</p>
+            <p class="mt-8 text-sm text-gray-500">&copy; ২০২৫ সচেতনতা বার্তা। সকল তথ্য শিক্ষামূলক উদ্দেশ্যে প্রদত্ত।</p>
+        </footer>
+
+    </div>
+
+    <script>
+        function wrapLabel(str, maxWidth) {
+            if (str.length <= maxWidth) {
+                return str;
+            }
+            const words = str.split(' ');
+            let currentLine = '';
+            const lines = [];
+            for (const word of words) {
+                if ((currentLine + word).length <= maxWidth || currentLine === '') {
+                    currentLine += (currentLine === '' ? '' : ' ') + word;
+                } else {
+                    lines.push(currentLine);
+                    currentLine = word;
+                }
+            }
+            lines.push(currentLine);
+            return lines;
+        }
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            }
+            return label;
+        };
+
+        const curData = {
+            labels: [
+                wrapLabel('নিরাপদ সীমা (<৩০%)', 16), 
+                wrapLabel('সতর্ক সীমা (৩০-৫০%)', 16), 
+                wrapLabel('বিপজ্জনক সীমা (>৫০%)', 16)
+            ],
+            datasets: [{
+                label: 'ক্রেডিট ব্যবহারের অনুপাত',
+                data: [30, 20, 50],
+                backgroundColor: [
+                    '#00BFFF', // Deep Sky Blue for Safe
+                    '#FFD700', // Gold for Warning (Changed from Tomato for better differentiation)
+                    '#FF6347'  // Tomato for Danger
+                ],
+                hoverOffset: 4
+            }]
+        };
+
+        const curConfig = {
+            type: 'doughnut',
+            data: curData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            font: {
+                                family: "'Hind Siliguri', sans-serif"
+                            },
+                            padding: 10,
+                            generateLabels: function(chart) {
+                                const data = chart.data;
+                                if (data.labels.length && data.datasets.length) {
+                                    return data.labels.map(function(label, i) {
+                                        const meta = chart.getDatasetMeta(0);
+                                        const style = meta.controller.getStyle(i);
+                                        let textLabel = label;
+                                        if (Array.isArray(label)) {
+                                            textLabel = label.join(' ');
+                                        }
+                                        return {
+                                            text: textLabel,
+                                            fillStyle: style.backgroundColor,
+                                            strokeStyle: style.borderColor,
+                                            lineWidth: style.borderWidth,
+                                            hidden: isNaN(data.datasets[0].data[i]) || meta.data[i].hidden,
+                                            index: i
+                                        };
+                                    });
+                                }
+                                return [];
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback,
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed !== null) {
+                                    label += context.parsed + '%';
+                                }
+                                return label;
+                            }
+                        },
+                        bodyFont: {
+                            family: "'Hind Siliguri', sans-serif"
+                        },
+                        titleFont: {
+                            family: "'Hind Siliguri', sans-serif"
+                        }
+                    }
+                }
+            }
+        };
+
+        window.onload = function() {
+            const curChartCtx = document.getElementById('curChart').getContext('2d');
+            new Chart(curChartCtx, curConfig);
+        };
+    </script>
+
+</body>
+  </html>
